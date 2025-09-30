@@ -1,17 +1,18 @@
 <script>
   import * as Tabs from "$lib/components/ui/tabs/index.js";
   import Setting from "$lib/components/Setting.svelte";
+  import NormalPlayList from "$lib/components/NormalPlayList.svelte";
 </script>
 
 <main class="w-full">
-    <Tabs.Root value="play" class="w-full">
+    <Tabs.Root value="play" class="w-full h-screen">
         <Tabs.List class="w-full flex justify-around">
             <Tabs.Trigger value="play">Play List</Tabs.Trigger>
             <Tabs.Trigger value="schedule">Schedule List</Tabs.Trigger>
             <Tabs.Trigger value="setting">Setting</Tabs.Trigger>
         </Tabs.List>
-        <Tabs.Content value="play">
-            Play list here.
+        <Tabs.Content value="play" class="w-full">
+            <NormalPlayList />
         </Tabs.Content>
         <Tabs.Content value="schedule">
             Scheduled list here.
