@@ -1,37 +1,24 @@
 <script>
-  import {invoke} from "@tauri-apps/api/core";
-  import {Button} from "$lib/components/ui/button/index.js";
-
-  let name = $state("");
-  let greetMsg = $state("");
-
-  async function greet(event) {
-    event.preventDefault();
-    // Learn more about Tauri commands at https://tauri.app/develop/calling-rust/
-    greetMsg = await invoke("greet", {name});
-  }
+  import * as Tabs from "$lib/components/ui/tabs/index.js";
+  import Setting from "$lib/components/Setting.svelte";
 </script>
 
-<main class="container">
-    <h1>Welcome to Tauri + Svelte</h1>
-
-    <div class="row">
-        <a href="https://vite.dev" target="_blank">
-            <img src="/vite.svg" class="logo vite" alt="Vite Logo"/>
-        </a>
-        <a href="https://tauri.app" target="_blank">
-            <img src="/tauri.svg" class="logo tauri" alt="Tauri Logo"/>
-        </a>
-        <a href="https://svelte.dev" target="_blank">
-            <img src="/svelte.svg" class="logo svelte-kit" alt="SvelteKit Logo"/>
-        </a>
-    </div>
-    <p>Click on the Tauri, Vite, and SvelteKit logos to learn more.</p>
-
-    <form class="row" onsubmit={greet}>
-        <input id="greet-input" placeholder="Enter a name..." bind:value={name}/>
-        <Button type="submit">Greet</Button>
-    </form>
-    <p>{greetMsg}</p>
+<main class="w-full">
+    <Tabs.Root value="play" class="w-full">
+        <Tabs.List class="w-full flex justify-around">
+            <Tabs.Trigger value="play">Play List</Tabs.Trigger>
+            <Tabs.Trigger value="schedule">Schedule List</Tabs.Trigger>
+            <Tabs.Trigger value="setting">Setting</Tabs.Trigger>
+        </Tabs.List>
+        <Tabs.Content value="play">
+            Play list here.
+        </Tabs.Content>
+        <Tabs.Content value="schedule">
+            Scheduled list here.
+        </Tabs.Content>
+        <Tabs.Content value="setting">
+            <Setting />
+        </Tabs.Content>
+    </Tabs.Root>
 </main>
 
