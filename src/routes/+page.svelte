@@ -1,7 +1,7 @@
 <script>
   import * as Tabs from "$lib/components/ui/tabs/index.js";
   import Setting from "$lib/components/Setting.svelte";
-  import NormalPlayList from "$lib/components/NormalPlayList.svelte";
+  import PlayList from "$lib/components/PlayList.svelte";
 </script>
 
 <main class="w-full">
@@ -12,10 +12,10 @@
             <Tabs.Trigger value="setting">Setting</Tabs.Trigger>
         </Tabs.List>
         <Tabs.Content value="play" class="w-full">
-            <NormalPlayList />
+            <PlayList title="Playlist" />
         </Tabs.Content>
         <Tabs.Content value="schedule">
-            Scheduled list here.
+            <PlayList title="Scheduled Playlist" />
         </Tabs.Content>
         <Tabs.Content value="setting">
             <Setting />
